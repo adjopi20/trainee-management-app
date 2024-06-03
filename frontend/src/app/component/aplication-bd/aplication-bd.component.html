@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div
+      class="col-sm-12 col-md-6 col-lg-4"
+      *ngFor="let app of jobAppByVacancy; let i = index"
+    >
+      <div class="card mb-4" style="width: 100%">
+        <div class="card-body">
+          <h5 class="card-title">{{ app.position }}</h5>
+          <h6 class="card-title">{{ app.clientName }}</h6>
+          <p class="card-text">{{ app.description }}</p>
+
+          <!-- <ul class="list-group mt-3">
+            <li class="list-group-item" *ngFor="let application of app.jobApp">
+              <div>
+                <strong
+                  >{{ application.firstName }}
+                  {{ application.lastName || "" }}</strong
+                >
+              </div>
+
+              <select
+                placeholder="Status"
+                id="selectStatus{{ application.id }}"
+                class="form-control fw-bold mb-3"
+                [(ngModel)]="selectedStatusMap[application.id]"
+                aria-label="Select Status"
+              >
+                <option disabled selected [value]="application.status">
+                  {{ application.status }}
+                </option>
+                <option
+                  *ngFor="let status of applicationStatus"
+                  [value]="status.status"
+                >
+                  {{ status.status }}
+                </option>
+              </select>
+              <button
+                class="btn btn-primary float-end"
+                (click)="saveApplicationStatus(application.id)"
+              >
+                Save
+              </button>
+            </li>
+          </ul> -->
+
+          <button (click)="viewApplication(i)" class="btn btn-primary w-100">
+            View
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

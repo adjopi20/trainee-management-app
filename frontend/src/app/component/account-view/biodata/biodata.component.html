@@ -1,0 +1,99 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="text-center">Biodata</h5>
+    <form [formGroup]="traineeDetailForm" (ngSubmit)="saveTraineeDetail()">
+      <div class="row">
+        <div class="col-6 p-3">
+          <input
+            type="text"
+            class="form-control fw-bold"
+            style="height: 56px"
+            placeholder="Email"
+            formControlName="email"
+            [readonly]="true"
+          />
+        </div>
+        <div class="col-6 p-3">
+          <input
+            type="text"
+            class="form-control fw-bold"
+            style="height: 56px"
+            placeholder="Joined At"
+            [value]="
+              traineeDetailForm.get('joinedAt')?.value | date : 'yyyy-MM-dd'
+            "
+            formControlName="joinedAt"
+            [readonly]="true"
+          />
+        </div>
+        <div class="col-6 p-3">
+          <input
+            type="text"
+            class="form-control fw-bold"
+            style="height: 56px"
+            placeholder="Masukan Nama Depan"
+            formControlName="firstName"
+            [readonly]="!isEditingBio"
+          />
+        </div>
+        <div class="col-6 p-3">
+          <input
+            type="text"
+            class="form-control fw-bold"
+            style="height: 56px"
+            placeholder="Masukan Nama Belakang"
+            formControlName="lastName"
+            [readonly]="!isEditingBio"
+          />
+        </div>
+        <div class="col-6 p-3">
+          <input
+            type="date"
+            class="form-control fw-bold"
+            style="height: 56px"
+            placeholder="Masukan Tanggal Lahir"
+            formControlName="dateOfBirth"
+            [value]="
+              traineeDetailForm.get('dateOfBirth')?.value | date : 'yyyy-MM-dd'
+            "
+            [disabled]="!isEditingBio"
+          />
+        </div>
+        <div class="col-6 p-3">
+          <input
+            type="text"
+            class="form-control fw-bold"
+            style="height: 56px"
+            placeholder="Masukkan Tempat Lahir"
+            formControlName="placeOfBirth"
+            [readonly]="!isEditingBio"
+          />
+        </div>
+        <div class="col-6 p-3">
+          <input
+            type="text"
+            class="form-control fw-bold"
+            style="height: 56px"
+            placeholder="Nomor Telepon"
+            formControlName="phone"
+            [readonly]="!isEditingBio"
+          />
+        </div>
+      </div>
+      <button
+        *ngIf="!isEditingBio"
+        class="btn btn-primary float-end"
+        (click)="editBio()"
+      >
+        Update Profile
+      </button>
+      <button
+        *ngIf="isEditingBio"
+        class="btn btn-success float-end"
+        type="submit"
+      >
+        Save Profile
+      </button>
+    </form>
+  </div>
+</div>

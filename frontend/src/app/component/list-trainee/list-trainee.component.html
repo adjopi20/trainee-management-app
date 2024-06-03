@@ -1,0 +1,127 @@
+<div class="container">
+  <h2>List Trainee</h2>
+  <div class="card mb-3">
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>FE Score</th>
+            <th>BE Score</th>
+            <th>Mobile Score</th>
+            <th>Average Score</th>
+            <th>Batch</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of trainees">
+            <td>{{ item.firstName }}</td>
+            <td>{{ getGrade(item.traineeGrade, "Frontend") }}</td>
+            <td>{{ getGrade(item.traineeGrade, "Backend") }}</td>
+            <td>{{ getGrade(item.traineeGrade, "Mobile") }}</td>
+            <td>{{ getAverageGrade(item.traineeGrade) }}</td>
+            <td>{{ item.batch }}</td>
+            <td>
+              <button
+                class="btn btn-primary me-3"
+                (click)="editTrainee(item)"
+                data-bs-toggle="modal"
+                data-bs-target="#editModal"
+              >
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="editModal"
+  tabindex="-1"
+  aria-labelledby="editModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Trainee</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="saveEdit()">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              [(ngModel)]="editForm.firstName"
+              name="firstName"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input
+              type="text"
+              id="lastName"
+              [(ngModel)]="editForm.lastName"
+              name="lastName"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="frontendGrade">Frontend Grade</label>
+            <input
+              type="number"
+              id="frontendGrade"
+              [(ngModel)]="editForm.frontendGrade"
+              name="frontendGrade"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="backendGrade">Backend Grade</label>
+            <input
+              type="number"
+              id="backendGrade"
+              [(ngModel)]="editForm.backendGrade"
+              name="backendGrade"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group">
+            <label for="mobileGrade">Mobile Grade</label>
+            <input
+              type="number"
+              id="mobileGrade"
+              [(ngModel)]="editForm.mobileGrade"
+              name="mobileGrade"
+              class="form-control"
+            />
+          </div>
+          <button type="submit" data-bs-dismiss="modal" class="btn btn-success">
+            Save
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

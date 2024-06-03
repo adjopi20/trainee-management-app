@@ -1,0 +1,65 @@
+<div
+  class="fixed-top d-none d-md-flex flex-column flex-shrink-0 p-3 bg-white border-end"
+  style="width: 280px; min-height: 100vh; height: fit-content"
+>
+  <div class="d-flex align-items-center gap-2 w-100">
+    <!-- <img
+      src="./assets/images/github-mark.svg"
+      alt="Logo"
+      width="40"
+      height="40"
+    /> -->
+    <div class="fw-bold" style="font-size: x-large">TM Apps</div>
+  </div>
+  <hr />
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="mt-5">
+      <div class="accordion" id="profileAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingProfile">
+            <button
+              class="accordion-button fw-bold"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseProfile"
+              aria-expanded="true"
+              aria-controls="collapseProfile"
+            >
+              Profile
+            </button>
+          </h2>
+          <div
+            id="collapseProfile"
+            class="accordion-collapse collapse show"
+            aria-labelledby="headingProfile"
+            data-bs-parent="#profileAccordion"
+          >
+            <div class="accordion-body">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link fw-bold text-black" href="#">Account</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link fw-bold text-black" href="#">Resume</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link fw-bold text-black" href="#">Grades</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <a
+        routerLink="/profile"
+        routerLinkActive="active-dashboard text-white"
+        class="nav-link text-black fw-bold"
+      >
+        <i class="fa-solid fa-user"></i>
+        Job Applicant
+      </a>
+    </li>
+  </ul>
+</div>

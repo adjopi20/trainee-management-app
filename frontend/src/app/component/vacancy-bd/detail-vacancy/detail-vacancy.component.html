@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ vacant.position }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            {{ vacant.bdClient.clientName }}
+          </h6>
+          <p class="card-text">{{ vacant.description }}</p>
+          <p class="card-text"><strong>Quota:</strong> {{ vacant.quota }}</p>
+          <p class="card-text">
+            <strong>Email:</strong> {{ vacant.bdClient.clientEmail }}
+          </p>
+          <p class="card-text">
+            <strong>Address:</strong> {{ vacant.bdClient.clientAddress }}
+          </p>
+          <a
+            routerLink="/bd/vacancy/detail/{{ vacant.id }}/update"
+            class="btn btn-primary mt-3"
+            >Update</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

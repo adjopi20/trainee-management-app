@@ -1,0 +1,32 @@
+.layout-dashboard {
+  margin-left: 280px;
+  width: 100%;
+  min-height: 100vh;
+  height: fit-content;
+  background: #f6f5f5;
+}
+
+@media screen and (max-width: 768px) {
+  .layout-dashboard {
+    margin-left: 0;
+  }
+}
+
+.accordion-item {
+  border: none;
+}
+.accordion-button {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+.accordion-button:focus {
+  box-shadow: none;
+}
+.accordion-button:not(.collapsed) {
+  color: #000;
+  background-color: transparent;
+}
+.accordion-collapse {
+  border: none;
+}

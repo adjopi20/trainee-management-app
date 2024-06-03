@@ -1,0 +1,56 @@
+<div class="container">
+  <h2>Create Vacancy</h2>
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="quota" class="form-label">Quota:</label>
+      <input
+        type="number"
+        class="form-control"
+        id="quota"
+        name="quota"
+        placeholder=""
+        formControlName="quota"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="position" class="form-label">Position:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="position"
+        name="position"
+        formControlName="position"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="status" class="form-label">Status:</label>
+      <select
+        class="form-select"
+        id="status"
+        name="status"
+        formControlName="status"
+      >
+        @for (item of statuses; track $index) {
+        <option>{{ item.status }}</option>
+        }
+      </select>
+    </div>
+    <div class="mb-3">
+      <div class="d-flex justify-content-between">
+        <label for="description" class="form-label">Description:</label>
+        <label for="description" class="form-label">
+          {{ updateForm.controls["description"].value?.length | json }}</label
+        >
+      </div>
+      <textarea
+        type="text"
+        class="form-control"
+        id="description"
+        name="description"
+        formControlName="description"
+        maxlength="200"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

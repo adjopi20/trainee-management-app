@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>Create Vacancy</h2>
+  <form [formGroup]="createFrom" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="quota" class="form-label">Quota:</label>
+      <input
+        type="number"
+        class="form-control"
+        id="quota"
+        name="quota"
+        placeholder=""
+        formControlName="quota"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="position" class="form-label">Position:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="position"
+        name="position"
+        formControlName="position"
+      />
+    </div>
+    <div class="mb-3">
+      <div class="d-flex justify-content-between">
+        <label for="description" class="form-label">Description:</label>
+        <label for="description" class="form-label">
+          {{ this.createFrom.controls.description.value?.length | json }}</label
+        >
+      </div>
+      <textarea
+        type="text"
+        class="form-control"
+        id="description"
+        name="description"
+        formControlName="description"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

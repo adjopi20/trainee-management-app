@@ -1,0 +1,78 @@
+<div class="d-flex">
+  <div
+    class="fixed-top d-none d-md-flex flex-column flex-shrink-0 p-3 bg-white border-end"
+    style="width: 280px; min-height: 100vh; height: fit-content"
+  >
+    <div class="d-flex align-items-center gap-2 w-100">
+      <!-- <img
+        src="./assets/images/github-mark.svg"
+        alt="Logo"
+        width="40"
+        height="40"
+      /> -->
+      <div class="fw-bold" style="font-size: x-large">Business Development</div>
+    </div>
+    <hr />
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="mt-5">
+        <a
+          routerLink="accountbd"
+          routerLinkActive="active-dashboard text-white"
+          class="nav-link text-black fw-bold"
+        >
+          <i class="fa-solid fa-user"></i>
+          Biodata
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="applicant"
+          routerLinkActive="active-dashboard text-white"
+          class="nav-link text-black fw-bold"
+        >
+          <i class="fa-solid fa-user"></i>
+          Applicant
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="vacancy"
+          routerLinkActive="active-dashboard text-white"
+          class="nav-link text-black fw-bold"
+        >
+          <i class="fa-solid fa-user"></i>
+          Vacancy
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="client"
+          routerLinkActive="active-dashboard text-white"
+          class="nav-link text-black fw-bold"
+        >
+          <i class="fa-solid fa-user"></i>
+          Client
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="analytyc"
+          routerLinkActive="active-dashboard text-white"
+          class="nav-link text-black fw-bold"
+        >
+          <i class="fa-solid fa-user"></i>
+          Analytyc
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="layout-dashboard">
+    <app-navbar />
+    <div class="p-4">
+      <!-- <app-account-view /> -->
+      <!-- <app-cv-builder /> -->
+      <router-outlet />
+    </div>
+  </div>
+</div>

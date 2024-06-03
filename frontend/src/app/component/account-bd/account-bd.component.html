@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div>
+      <div class="card">
+        <img
+          src="../../../assets/avatar-profile.svg"
+          alt="photo-profile"
+          style="height: 250px"
+        />
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="text-center">Biodata</h5>
+                  <div class="row">
+                    <div class="col-6 p-3">
+                      <input
+                        type="text"
+                        [(ngModel)]="profile.firstName"
+                        placeholder="firstName"
+                        class="form-control fw-bold"
+                        style="height: 56px"
+                        [disabled]="!isEditingBio"
+                      />
+                    </div>
+                    <div class="col-6 p-3">
+                      <input
+                        type="text"
+                        [(ngModel)]="profile.lastName"
+                        placeholder="lastName"
+                        class="form-control fw-bold"
+                        style="height: 56px"
+                        [disabled]="!isEditingBio"
+                      />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6 p-3">
+                      <input
+                        type="text"
+                        [(ngModel)]="profile.email"
+                        class="form-control fw-bold"
+                        style="height: 56px"
+                        [disabled]="!isEditingBio"
+                      />
+                    </div>
+                    <div class="col-6 p-3">
+                      <input
+                        type="text"
+                        [(ngModel)]="profile.bdRole"
+                        class="form-control fw-bold"
+                        style="height: 56px"
+                        [disabled]="!isEditingBio"
+                      />
+                    </div>
+                  </div>
+                  <button
+                    *ngIf="!isEditingBio"
+                    class="btn btn-primary float-end"
+                    (click)="editBio()"
+                  >
+                    Update Profile
+                  </button>
+                  <button
+                    *ngIf="isEditingBio"
+                    class="btn btn-success float-end"
+                    (click)="saveBio()"
+                  >
+                    Save Profile
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

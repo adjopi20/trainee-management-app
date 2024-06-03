@@ -1,0 +1,37 @@
+<div class="container">
+  <h2>Update Client</h2>
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="clientName" class="form-label">Client Name:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="clientName"
+        name="clientName"
+        placeholder=""
+        formControlName="clientName"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="clientEmail" class="form-label">Client Email:</label>
+      <input
+        type="email"
+        class="form-control"
+        id="clientEmail"
+        name="clientEmail"
+        formControlName="clientEmail"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="clientAddress" class="form-label">Client Address:</label>
+      <textarea
+        type="text"
+        class="form-control"
+        id="clientAddress"
+        name="clientAddress"
+        formControlName="clientAddress"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

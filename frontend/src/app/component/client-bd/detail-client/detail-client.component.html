@@ -1,0 +1,13 @@
+<div class="card">
+  <h5 class="card-header">{{ details.clientName ?? "" }}</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{ details.clientEmail ?? "" }}</h5>
+    <p class="card-text">
+      {{ details.clientAddress ?? "" }}
+    </p>
+    <div class="">
+      <div (click)="doEdit()" class="btn btn-primary me-2">Edit</div>
+      <div (click)="createVacant()" class="btn btn-primary">Create Vacant</div>
+    </div>
+  </div>
+</div>

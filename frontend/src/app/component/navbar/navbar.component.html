@@ -1,0 +1,72 @@
+<header class="sticky-top">
+  <nav class="navbar navbar-expand-md shadow">
+    <div class="container">
+      <div
+        class="navbar-brand d-flex justify-content-center align-items-center gap-2 text-white fw-bold"
+      >
+        <!-- <img class="rounded-circle" alt="photo-profile" style="height: 40px" /> -->
+        <!-- <h6>Hai, username</h6> -->
+      </div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul
+          class="navbar-nav ms-auto d-flex justify-content-center align-items-end align-items-lg-center"
+        >
+          <li class="nav-item d-md-none">
+            <a
+              routerLink="/profile"
+              class="nav-link text-white fw-bold active"
+              aria-current="page"
+              >Accout</a
+            >
+          </li>
+          <li class="nav-item d-md-none">
+            <a
+              routerLink="/profile"
+              class="nav-link text-white fw-bold active"
+              aria-current="page"
+              >Resume</a
+            >
+          </li>
+          <li class="nav-item d-md-none">
+            <a
+              routerLink="/profile"
+              class="nav-link text-white fw-bold active"
+              aria-current="page"
+              >Grade</a
+            >
+          </li>
+          <li class="nav-item d-md-none">
+            <a
+              routerLink="/profile"
+              class="nav-link text-white fw-bold active"
+              aria-current="page"
+              >Job Application</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white active" aria-current="page">
+              <button
+                (click)="doLogout()"
+                class="btn btn-outline-light fw-bold"
+                style="width: 150px"
+              >
+                <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+              </button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

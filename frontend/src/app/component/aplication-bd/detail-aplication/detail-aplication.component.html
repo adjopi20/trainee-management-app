@@ -1,0 +1,72 @@
+<div class="container mt-4" *ngIf="application">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ application.position }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            {{ application.clientName }}
+          </h6>
+          <p class="card-text">{{ application.description }}</p>
+          <p class="card-text">
+            <strong>Quota:</strong> {{ application.quota }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4" *ngIf="application.jobApp.length">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div
+        *ngFor="let item of application.jobApp; let i = index"
+        class="card mb-3 mt-3"
+      >
+        <div class="card-body">
+          <p class="card-text">
+            <strong>Application Date:</strong>
+            {{ item.applicationDate | date : "medium" }}
+          </p>
+          <p class="card-text"><strong>Status:</strong> {{ item.status }}</p>
+          <select
+            placeholder="Status"
+            id="selectStatus{{ i }}"
+            class="form-control fw-bold mb-3"
+            [(ngModel)]="selectedStatusMap[i]"
+            aria-label="Select Status"
+          >
+            <option disabled selected [value]="item.status">
+              {{ item.status }}
+            </option>
+            <option
+              *ngFor="let status of applicationStatus"
+              [value]="status.status"
+            >
+              {{ status.status }}
+            </option>
+          </select>
+          <button
+            (click)="saveApplicationStatus(item.id)"
+            class="btn btn-primary float-end"
+          >
+            Save
+          </button>
+          <p class="card-text">
+            <strong>Name:</strong> {{ item.firstName }} {{ item.lastName }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-4" *ngIf="!application.jobApp.length">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="alert alert-warning" role="alert">
+        No application data found for the given ID.
+      </div>
+    </div>
+  </div>
+</div>

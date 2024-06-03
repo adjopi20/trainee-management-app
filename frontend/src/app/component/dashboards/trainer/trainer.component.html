@@ -1,0 +1,58 @@
+<div class="d-flex">
+  <div
+  class="fixed-top d-none d-md-flex flex-column flex-shrink-0 p-3 bg-white border-end"
+  style="width: 280px; min-height: 100vh; height: fit-content"
+>
+  <div class="d-flex align-items-center gap-2 w-100">
+    <!-- <img
+      src="./assets/images/github-mark.svg"
+      alt="Logo"
+      width="40"
+      height="40"
+    /> -->
+    <div class="fw-bold" style="font-size: x-large">Trainer</div>
+  </div>
+  <hr />
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="mt-5">
+      <a
+      routerLink="accounttrainer"
+      routerLinkActive="active-dashboard text-white"
+      class="nav-link text-black fw-bold"
+    >
+      <i class="fa-solid fa-user"></i>
+      Account
+    </a>
+    </li>
+    <li>
+      <a
+        routerLink="listtrainee"
+        routerLinkActive="active-dashboard text-white"
+        class="nav-link text-black fw-bold"
+      >
+        <i class="fas fa-list"></i>
+        List Trainee
+      </a>
+    </li>
+    <li>
+      <a
+        routerLink="analytictrainer"
+        routerLinkActive="active-dashboard text-white"
+        class="nav-link text-black fw-bold"
+      >
+        <i class="fa-solid fa-magnifying-glass-chart"></i>
+        Analytyc
+      </a>
+    </li>
+  </ul>
+</div>
+
+analytictrainer
+
+  <div class="layout-dashboard">
+    <app-navbar />
+    <div class="p-4">
+      <router-outlet />
+    </div>
+  </div>
+</div>  

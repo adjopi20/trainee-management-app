@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Create Applicant</h2>
+  <form>
+    <div class="mb-3">
+      <label for="createAt" class="form-label">Create At:</label>
+      <input type="date" class="form-control" id="createAt" name="createAt" />
+    </div>
+    <div class="mb-3">
+      <label for="status" class="form-label">Status:</label>
+      <select class="form-select" id="status" name="status">
+        <option value="open">Open</option>
+        <option value="closed">Closed</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="quota" class="form-label">Quota:</label>
+      <input type="number" class="form-control" id="quota" name="quota" />
+    </div>
+    <div class="mb-3">
+      <label for="detail" class="form-label">Detail:</label>
+      <textarea class="form-control" id="detail" name="detail"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

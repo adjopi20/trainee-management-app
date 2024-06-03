@@ -1,0 +1,61 @@
+<div class="container">
+  <h3>Create Account Traine</h3>
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="traineeForm" (ngSubmit)="createTrainee()">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Masukan email kamu"
+            formControlName="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Masukan password kamu"
+            formControlName="password"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            placeholder="Masukan nama depan"
+            formControlName="firstName"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="joinedAt" class="form-label">joined At</label>
+          <input
+            type="date"
+            class="form-control"
+            id="joinedAt"
+            formControlName="joinedAt"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="batch" class="form-label">Batch ID</label>
+          <input
+            type="text"
+            class="form-control"
+            id="batch"
+            placeholder="Masukan Batch Kamu"
+            formControlName="batch"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary float-end">
+          Create Account
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

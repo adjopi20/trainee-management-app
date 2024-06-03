@@ -1,0 +1,22 @@
+.active-dashboard {
+    background-color: rgb(56, 122, 223, 0.9);
+  }
+
+  .accordion-item {
+    border: none;
+  }
+  .accordion-button {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+  .accordion-button:focus {
+    box-shadow: none;
+  }
+  .accordion-button:not(.collapsed) {
+    color: #000;
+    background-color: transparent;
+  }
+  .accordion-collapse {
+    border: none;
+  }

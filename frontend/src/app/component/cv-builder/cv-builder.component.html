@@ -1,0 +1,61 @@
+<div class="container mt-5">
+  <h1 class="text-center mb-4">CV Preview</h1>
+  <div class="cv p-4 border rounded bg-light">
+    <div class="row mb-3">
+      <div class="col-12">
+        <h2 class="name">{{ resume.firstName }} {{ resume.lastName }}</h2>
+        <!-- <p><strong>Date of Birth:</strong> {{ resume.dateOfBirth }}</p> -->
+        <p><strong>Address:</strong> {{ resume.placeOfBirth }}</p>
+        <p><strong>Email:</strong> {{ resume.email }}</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <h3>Skills</h3>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let skill of resume.skills">{{ skill.skillName }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <h3>Experience</h3>
+        <div *ngFor="let exp of resume.experience">
+          <p><strong>{{ exp.position }}</strong> at {{ exp.company }} ({{ exp.dates }})</p>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let resp of exp.responsibilities">{{ resp }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <h3>Education</h3>
+        <div *ngFor="let edu of resume.education">
+          <p><strong>{{ edu.degree }}</strong> in {{ edu.institution }} ({{ edu.dates }})</p>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let course of edu.courses">{{ course }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <button type="button" class="btn btn-primary me-3" (click)="generatePDF()">
+      Generate PDF
+    </button>
+    <button type="button" class="btn btn-success" (click)="downloadPDF()">
+      Download PDF
+    </button>
+  </div>
+</div>

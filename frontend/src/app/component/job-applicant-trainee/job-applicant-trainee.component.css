@@ -1,0 +1,24 @@
+.status-open {
+  background-color: green;
+  color: white;
+  padding: 5px 10px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.status-closed {
+  background-color: gray;
+  color: white;
+  padding: 5px 10px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.quota-0 {
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+}

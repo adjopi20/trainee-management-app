@@ -1,0 +1,57 @@
+<div class="container mt-4">
+  <div class="row">
+    <div
+      *ngFor="let vacant of openVacancys"
+      class="col-sm-12 col-md-6 col-lg-4 mb-4"
+    >
+      <div class="card h-100">
+        <div class="card-body">
+          <h4 class="card-title">{{ vacant.position }}</h4>
+          <h5 class="card-subtitle mb-2 text-muted">{{ vacant.clientName }}</h5>
+          <p class="card-text">{{ vacant.description }}</p>
+          <p class="card-text"><strong>Quota:</strong> {{ vacant.quota }}</p>
+
+          <div class="row">
+            <div class="col-6">
+              <button
+                class="btn btn-primary mt-auto"
+                type="button"
+                [ngClass]="{
+                  'quota-0': vacant.quota < 1,
+                  'status-open': vacant.status === 'Open',
+                  'status-closed': vacant.status !== 'Open'
+                }"
+                [disabled]="true"
+              >
+                @if (vacant.quota < 1) { Close } @else {
+                {{ vacant.status }}
+                }
+              </button>
+            </div>
+            <div class="col-6">
+              @if (vacant.quota < 1 ) {
+              <button
+                class="btn btn-primary mt-auto"
+                (click)="applyJob(vacant.vacancyId)"
+                disabled
+              >
+                Apply
+              </button>
+              } @else {
+              <button
+                [ngClass]="{ 'status-open': vacant.status === 'Open' }"
+                class="btn btn-primary mt-auto"
+                [disabled]="buttonChanged(vacant.vacancyId) === 'Applied'"
+                (click)="applyJob(vacant.vacancyId)"
+              >
+                {{ buttonChanged(vacant.vacancyId) }} 
+              </button>
+              }
+            </div>
+          </div>
+        </div>
+        <!-- <a routerLink="/bd/vacancy/detail/{{ vacant.id }}" class="btn btn-primary mt-auto">Detail</a> -->
+      </div>
+    </div>
+  </div>
+</div>

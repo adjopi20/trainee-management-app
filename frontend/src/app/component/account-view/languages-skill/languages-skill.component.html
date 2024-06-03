@@ -1,0 +1,178 @@
+<div class="card-body">
+  <h5 class="text-center">Skills</h5>
+  <form [formGroup]="skillForm" (ngSubmit)="createSkill()">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <label for="skillSelect" class="form-label">Skill</label>
+            <select
+              id="skillSelect"
+              class="form-control fw-bold mb-3"
+              formControlName="skill"
+            >
+              <option value="" disabled selected>Select Skill</option>
+              <option
+                *ngFor="let skill of availableSkills"
+                [value]="skill.name"
+              >
+                {{ skill.name }}
+              </option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label for="skillSelect" class="form-label">Level</label>
+            <select
+              id="skillSelect"
+              class="form-control fw-bold mb-3"
+              formControlName="level"
+            >
+              <option value="" disabled selected>Proficiency Level</option>
+              <option value="BEGINNER">BEGINNER</option>
+              <option value="INTERMEDIATE">INTERMEDIATE</option>
+              <option value="ADVANCED">ADVANCED</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary float-end">
+          Add Skill
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <!-- Skills Section -->
+  <div *ngFor="let skill of skills; let i = index" class="card mb-3">
+    <div class="card-body">
+      <div *ngIf="!skill.isEditing">
+        <h5>{{ skill.skillName }}</h5>
+        <p>{{ skill.level }}</p>
+        <button class="btn btn-danger float-end me-2" (click)="deleteSkill(i)">
+          Delete
+        </button>
+      </div>
+
+      <div *ngIf="skill.isEditing">
+        <label for="editSkillSelect{{ i }}" class="form-label">Skill</label>
+        <select
+          id="editSkillSelect{{ i }}"
+          class="form-control fw-bold mb-3"
+          [(ngModel)]="skill.skillId"
+          name="editSkillSelect{{ i }}"
+        >
+          <option value="" disabled>Select Skill</option>
+          <option
+            *ngFor="let availableSkill of availableSkills"
+            [value]="availableSkill.id"
+          >
+            {{ availableSkill.name }}
+          </option>
+        </select>
+        <input
+          type="text"
+          class="form-control fw-bold mb-3"
+          style="height: 56px"
+          placeholder="Skill Level"
+          [(ngModel)]="skill.level"
+        />
+        <button class="btn btn-primary float-end" (click)="saveSkill(i)">
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Languages Section -->
+  <div class="card mt-3">
+    <div class="card-body">
+      <h5 class="text-center">Languages</h5>
+      <form [formGroup]="LanguageForm" (ngSubmit)="createLanguage()">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-6">
+                <label for="languageSelect" class="form-label">Language</label>
+                <select
+                  id="languageSelect"
+                  class="form-control fw-bold mb-3"
+                  formControlName="language"
+                >
+                  <option value="" disabled selected>Select Language</option>
+                  <option
+                    *ngFor="let language of availableLanguages"
+                    [value]="language.name"
+                  >
+                    {{ language.name }}
+                  </option>
+                </select>
+              </div>
+              <div class="col-6">
+                <label for="languageLevelSelect" class="form-label"
+                  >Level</label
+                >
+                <select
+                  id="languageLevelSelect"
+                  class="form-control fw-bold mb-3"
+                  formControlName="level"
+                >
+                  <option value="" disabled selected>Proficiency Level</option>
+                  <option value="BEGINNER">BEGINNER</option>
+                  <option value="INTERMEDIATE">INTERMEDIATE</option>
+                  <option value="ADVANCED">ADVANCED</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary float-end">
+              Add Language
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div *ngFor="let language of languages; let i = index" class="card mb-3">
+        <div class="card-body">
+          <div *ngIf="!language.isEditing">
+            <h5>{{ language.languageName }}</h5>
+            <p>{{ language.level }}</p>
+
+            <button
+              class="btn btn-danger float-end me-2"
+              (click)="deleteLanguage(i)"
+            >
+              Delete
+            </button>
+          </div>
+          <div *ngIf="language.isEditing">
+            <label for="editLanguageSelect{{ i }}" class="form-label"
+              >Language</label
+            >
+            <select
+              id="editLanguageSelect{{ i }}"
+              class="form-control fw-bold mb-3"
+              [(ngModel)]="language.languageId"
+              name="editLanguageSelect{{ i }}"
+            >
+              <option value="" disabled>Select Language</option>
+              <option
+                *ngFor="let availableLanguage of availableLanguages"
+                [value]="availableLanguage.id"
+              >
+                {{ availableLanguage.name }}
+              </option>
+            </select>
+            <input
+              type="text"
+              class="form-control fw-bold mb-3"
+              style="height: 56px"
+              placeholder="Level"
+              [(ngModel)]="language.level"
+            />
+            <button class="btn btn-primary float-end" (click)="saveLanguage(i)">
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

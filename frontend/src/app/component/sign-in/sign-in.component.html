@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img
+          src="../../../assets/logos.png"
+          alt="Logo"
+          width="25"
+          class="d-inline-block align-text-top me-3"
+        />
+        <p class="d-inline fw-bold">Trainee Management</p>
+      </a>
+    </div>
+  </nav>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-6">
+      <h1 class="mt-5">Sign In</h1>
+      <h6 class="mb-5">Silahkan Login dengan E-mail dan Username anda</h6>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <input
+          id="email"
+          type="email"
+          class="form-control shadow"
+          placeholder="Masukan Email Anda"
+          style="height: 56px"
+          name="email"
+          formControlName="email"
+        />
+        <div class="position-relative">
+          <input
+            id="pas"
+            [type]="lock ? 'text' : 'password'"
+            class="form-control mt-4 shadow"
+            placeholder="Masukan Password Anda"
+            style="height: 56px"
+            name="password"
+            formControlName="password"
+          />
+          <i
+            (click)="lock = !lock"
+            style="
+              color: grey;
+              position: absolute;
+              right: 16px;
+              top: 50%;
+              transform: translateY(-50%);
+              cursor: pointer;
+            "
+            [ngClass]="lock ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'"
+          ></i>
+        </div>
+        <button type="submit" class="btn btn-primary mt-5 w-100 fs-4 fw-bold">
+          Sign In
+        </button>
+      </form>
+    </div>
+    <div class="col-lg-6 d-flex justify-content-center">
+      <img
+        src="../../../assets/Group 4.svg"
+        class="mt-5 img-fluid d-none d-lg-block"
+        width="450"
+        alt=""
+      />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>List Users</h2>
+  <div class="card mb-3">
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Creation Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of Users">
+            <td>{{ item.email }}</td>
+            <td>{{ item.role }}</td>
+            <td>{{ item.createdAt | date : "dd/MM/yyyy" }}</td>
+            <td>
+              
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="container">
+  <h3>Create Account Trainer</h3>
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="createTrainerForm" (ngSubmit)="createForm()">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            formControlName="email"
+            name="email"
+            id="email"
+            placeholder="Masukan email kamu"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            formControlName="password"
+            name="password"
+            placeholder="Masukan password kamu"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            formControlName="firstName"
+            name="firstName"
+            placeholder="Masukan nama depan"
+          />
+        </div>
+        <!-- <div class="mb-3">
+          <label for="date" class="form-label">Last Name</label>
+          <input
+            type="date"
+            class="form-control"
+            id="date"
+            formControlName="date"
+            name="date"
+            placeholder="Masukan tanggal"
+          />
+        </div> -->
+        <div class="mb-3">
+          <label for="batch" class="form-label">Batch ID</label>
+          <input
+            type="text"
+            class="form-control"
+            name="batch"
+            formControlName="batch"
+            id="batch"
+            placeholder="Masukan Batch Kamu"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary float-end">
+          Create Account
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

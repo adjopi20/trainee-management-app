@@ -1,0 +1,96 @@
+<div class="card mt-3">
+  <div class="card-body">
+    <h5 class="text-center">Education</h5>
+    <form [formGroup]="educationForm" (ngSubmit)="createEducation()">
+      <div class="card mb-3">
+        <div class="card-body">
+          <input
+            type="text"
+            class="form-control fw-bold mb-3"
+            style="height: 56px"
+            placeholder="Institution Name"
+            formControlName="institutionName"
+          />
+          <input
+            type="text"
+            class="form-control fw-bold mb-3"
+            style="height: 56px"
+            placeholder="Field of Study"
+            formControlName="fieldOfStudy"
+          />
+          <input
+            type="text"
+            class="form-control fw-bold mb-3"
+            style="height: 56px"
+            placeholder="Graduation Year"
+            formControlName="graduationYear"
+          />
+          <input
+            type="number"
+            class="form-control fw-bold mb-3"
+            style="height: 56px"
+            placeholder="CGPA"
+            formControlName="gpaScore"
+          />
+          <button type="submit" class="btn btn-primary float-end">
+            Add Education
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div *ngFor="let education of educations; let i = index" class="card mb-3">
+      <div class="card-body">
+        <div *ngIf="!education.isEditing">
+          <h5>{{ education.institutionName }}</h5>
+          <p>{{ education.fieldOfStudy }}</p>
+          <p>{{ education.graduationYear }}</p>
+          <p>{{ education.cgpa }}</p>
+          <button class="btn btn-success float-end" (click)="editEducation(i)">
+            Edit
+          </button>
+          <button
+            class="btn btn-danger float-end me-2"
+            (click)="deleteEducation(i)"
+          >
+            Delete
+          </button>
+        </div>
+
+        <div *ngIf="education.isEditing">
+          <input
+            type="text"
+            class="form-control fw-bold mb-3"
+            style="height: 56px"
+            placeholder="Institution Name"
+            [(ngModel)]="education.instituteName"
+          />
+          <input
+            type="text"
+            class="form-control fw-bold mb-3"
+            style="height: 56px"
+            placeholder="Field of Study"
+            [(ngModel)]="education.fieldOfStudy"
+          />
+          <input
+            type="text"
+            class="form-control fw-bold mb-3"
+            style="height: 56px"
+            placeholder="Graduation Year"
+            [(ngModel)]="education.graduationYear"
+          />
+          <input
+            type="text"
+            class="form-control fw-bold mb-3"
+            style="height: 56px"
+            placeholder="CGPA"
+            [(ngModel)]="education.cGPA"
+          />
+          <button class="btn btn-primary float-end" (click)="saveEducation(i)">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

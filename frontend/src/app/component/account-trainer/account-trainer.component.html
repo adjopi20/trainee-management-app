@@ -1,0 +1,107 @@
+<div class="container">
+  <div class="row">
+    <div>
+      <div class="card">
+        <img
+          src="../../../assets/avatar-profile.svg"
+          alt="photo-profile"
+          style="height: 250px"
+        />
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="text-center">Biodata</h5>
+                  <form [formGroup]="trainerForm">
+                    <div class="row">
+                      <div class="col-6 p-3">
+                        <div class="form-group floating-label">
+                          <input
+                            type="text"
+                            name="firstName"
+                            formControlName="firstName"
+                            class="form-control fw-bold"
+                            style="height: 56px"
+                            [readonly]="!isEditingBio"
+                            id="firstName"
+                          />
+                          <label for="firstName">First Name</label>
+                        </div>
+                      </div>
+                      <div class="col-6 p-3">
+                        <div class="form-group floating-label">
+                          <input
+                            type="text"
+                            name="email"
+                            formControlName="email"
+                            class="form-control fw-bold"
+                            style="height: 56px"
+                            [readonly]="!isEditingBio"
+                            id="lastName"
+                          />
+                          <label for="lastName">Last Name</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6 p-3">
+                        <div class="form-group floating-label">
+                          <input
+                            type="text"
+                            name="role"
+                            formControlName="role"
+                            class="form-control fw-bold"
+                            style="height: 56px"
+                            [readonly]="!isEditingBio"
+                            id="role"
+                          />
+                          <label for="role">Role</label>
+                        </div>
+                      </div>
+                      <div class="col-6 p-3">
+                        <div class="form-group floating-label">
+                          <input
+                            type="text"
+                            name="batch"
+                            formControlName="batch"
+                            class="form-control fw-bold"
+                            style="height: 56px"
+                            [readonly]="!isEditingBio"
+                            id="batch"
+                          />
+                          <label for="batch">Batch</label>
+                        </div>
+                      </div>
+                    </div>
+                    <button
+                      *ngIf="!isEditingBio"
+                      class="btn btn-primary float-end"
+                      (click)="editBio()"
+                    >
+                      Update Profile
+                    </button>
+                    <div *ngIf="isEditingBio" class="float-end">
+                      <button
+                        class="btn btn-success me-2"
+                        (click)="saveBio()"
+                      >
+                        Save Profile
+                      </button>
+                      <button
+                        class="btn btn-secondary"
+                        (click)="cancelEdit()"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </form>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

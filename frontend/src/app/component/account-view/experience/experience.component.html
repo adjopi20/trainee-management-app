@@ -1,0 +1,128 @@
+<div class="card mt-3">
+  <div class="card-body">
+    <h5 class="text-center">Experience</h5>
+    <form [formGroup]="experienceForm" (ngSubmit)="createExperience()">
+      <div class="card mb-3">
+        <div class="card-body">
+          <input
+            type="text"
+            class="form-control fw-bold mb-3"
+            style="height: 56px"
+            placeholder="Company"
+            formControlName="companyName"
+          />
+
+          <input
+            type="text"
+            class="form-control fw-bold mb-3"
+            style="height: 56px"
+            placeholder="Position"
+            formControlName="position"
+          />
+
+          <div class="row">
+            <div class="col-6">
+              <input
+                type="text"
+                class="form-control fw-bold mb-3"
+                style="height: 56px"
+                placeholder="Start Date"
+                formControlName="startDate"
+              />
+            </div>
+            <div class="col-6">
+              <input
+                type="text"
+                class="form-control fw-bold mb-3"
+                style="height: 56px"
+                placeholder="End Date"
+                formControlName="endDate"
+              />
+            </div>
+          </div>
+
+          <textarea
+            class="form-control"
+            rows="5"
+            placeholder="Description"
+            formControlName="description"
+          ></textarea>
+
+          <button type="submit" class="btn btn-primary float-end">
+            Add Experience
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div
+      *ngFor="let experience of experiences; let i = index"
+      class="card mb-3"
+    >
+      <div class="card-body">
+        <div *ngIf="!experience.isEditing">
+          <h5>{{ experience.companyName }}</h5>
+          <p>{{ experience.position }}</p>
+          <p>
+            {{ experience.startDate }} s/d
+            {{ experience.endDate }}
+          </p>
+          <p>{{ experience.description }}</p>
+          <button class="btn btn-success float-end" (click)="editExperience(i)">
+            Edit
+          </button>
+          <button
+            class="btn btn-danger float-end me-2"
+            (click)="deleteExperience(i)"
+          >
+            Delete
+          </button>
+        </div>
+        <div *ngIf="experience.isEditing">
+          <input
+            type="text"
+            class="form-control fw-bold mb-3"
+            style="height: 56px"
+            placeholder="Company"
+            [(ngModel)]="experience.companyName"
+          />
+
+          <input
+            type="text"
+            class="form-control fw-bold mb-3"
+            style="height: 56px"
+            placeholder="Position"
+            [(ngModel)]="experience.position"
+          />
+
+          <input
+            type="text"
+            class="form-control fw-bold mb-3"
+            style="height: 56px"
+            placeholder="Start Date"
+            [(ngModel)]="experience.startDate"
+          />
+
+          <input
+            type="text"
+            class="form-control fw-bold mb-3"
+            style="height: 56px"
+            placeholder="End Date"
+            [(ngModel)]="experience.endDate"
+          />
+
+          <textarea
+            class="form-control"
+            rows="5"
+            placeholder="Description"
+            [(ngModel)]="experience.description"
+          ></textarea>
+
+          <button class="btn btn-primary float-end" (click)="saveExperience(i)">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
